@@ -1,0 +1,58 @@
+<table class="table table-hover">
+    <thead>
+        <tr>
+            <th>
+                <div>
+                    State/UT
+                </div>
+            </th>
+            <th>
+                <div>
+                    Confirmed
+                </div>
+            </th>
+            <th>
+                <div>
+                    Active
+                </div>
+            </th>
+            <th>
+                <div>
+                    Recovered
+                </div>
+            </th>
+            <th>
+                <div>
+                    Deaths
+                </div>
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        <ng-container *ngFor="let state of statesData">
+            <tr (click)="getStateData(state)">
+                <td>
+                    <span
+                        *ngIf="showDistData && showDistData != null && selectedState.state == state.state; else elsepart">
+                        <i class="fa fa-minus-square" aria-hidden="true"></i>
+                    </span>
+                    <ng-template #elsepart>
+                        <i class="fa fa-plus-square" aria-hidden="true"></i>
+                    </ng-template>
+                    {{state.state}}
+                </td>
+                <td>{{state.confirmed}}</td>
+                <td>{{state.active}}</td>
+                <td>{{state.recovered}}</td>
+                <td>{{state.deaths}}</td>
+            </tr>
+            <tr *ngIf="showDistData && selectedState != null && selectedState.state == state.state">
+                <td colspan="5" class="container-fluid">
+                    <div class="container-fluid">
+                        <app-districts [state]="state"></app-districts>
+                    </div>
+                </td>
+            </tr>
+        </ng-container>
+    </tbody>
+</table>

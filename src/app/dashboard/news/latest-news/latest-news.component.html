@@ -1,0 +1,15 @@
+<div class="container">
+    <div class="container-fluid ">
+        <div class="row" *ngFor="let news of allnews" style="margin: 5%;">
+            <div  class="col-lg-4 " >
+                <img [src]="news.file" alt="covid " style="width: inherit;" >
+            </div>
+            <div class="col-lg-8">
+                <h3 class="">{{news.title}}</h3>
+                <h5 class="">{{news.description}}</h5>
+                <p class="">{{news.summary}}</p>
+                <p class="">{{news.fullnews}}</p>
+            </div>
+        </div>
+    </div>
+</div>

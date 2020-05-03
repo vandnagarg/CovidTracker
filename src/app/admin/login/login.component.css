@@ -1,0 +1,9 @@
+.login{
+    margin-left: 27%;
+    width: 50%;
+    margin-top: 6%;
+    background: border-box 1px aliceblue;
+    padding: 30px;
+    border-style: groove;
+    border-radius: 12px;
+}

@@ -1,0 +1,27 @@
+
+.total{
+    margin-left: 7%;
+    text-align: center;
+    font-size: medium;
+    padding: 13px;
+    margin-top: 2%;
+    margin-bottom: 2%;
+}
+.confirmedcss{
+    background-color: antiquewhite;
+    color:red;
+}
+.activecss{
+    background-color: aliceblue;
+    color: #7b66f2;
+}
+
+.recoveredcss{
+    background-color: #d8edd8;
+    color: green;
+}
+
+.deathscss{
+    color: black;
+    background-color: lightgrey;
+}

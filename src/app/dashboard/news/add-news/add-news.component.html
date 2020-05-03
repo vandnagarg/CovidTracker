@@ -1,0 +1,52 @@
+<div class="container">
+    <div class="container-fluid">
+        <form [formGroup]="addNewsForm" (ngSubmit)="addNews()">
+            <div class="form-group">
+                <label for="title">Title</label>
+                <input type="text" class="form-control" id="title" placeholder="Enter title" formControlName="title"
+                    [ngClass]="{ 'is-invalid': submitted && newsForm.title.errors }">
+                <div *ngIf="submitted && newsForm.title.errors" class="invalid-feedback">
+                    <div *ngIf="newsForm.title.errors.required">Title is required</div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="description">Description</label>
+                <input type="text" class="form-control" id="description" aria-describedby="descriptionhelp"
+                    placeholder="Enter description" formControlName="description"
+                    [ngClass]="{ 'is-invalid': submitted && newsForm.description.errors }">
+                <small id="descriptionhelp" class="form-text text-muted">Description should be less than  50 letters.</small>
+                <div *ngIf="submitted && newsForm.description.errors" class="invalid-feedback">
+                    <div *ngIf="newsForm.description.errors.required">Description is required</div>
+                    <div *ngIf="newsForm.description.errors.maxlength">Description should be less than 50 characters </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="summary">Summary</label>
+                <textarea class="form-control rounded-0" id="summary" aria-describedby="summaryhelp"
+                    placeholder="Enter summary" formControlName="summary"
+                    [ngClass]="{ 'is-invalid': submitted && newsForm.summary.errors }" ></textarea>
+                <small id="summaryhelp" class="form-text text-muted">Summary should be less than 100 letters.</small>
+                <div *ngIf="submitted && newsForm.summary.errors" class="invalid-feedback">
+                    <div *ngIf="newsForm.summary.errors.required">Summary is required</div>
+                    <div *ngIf="newsForm.summary.errors.maxlength">Summary should be less than 100 characters </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="fullnews">Full News</label>
+                <textarea class="form-control rounded-0" id="fullnews" placeholder="Enter Full News" formControlName="fullnews"
+                    [ngClass]="{ 'is-invalid': submitted && newsForm.fullnews.errors }" ></textarea>
+                <div *ngIf="submitted && newsForm.fullnews.errors" class="invalid-feedback">
+                    <div *ngIf="newsForm.fullnews.errors.required">This field is required</div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="image">Choose Image File</label>
+                <div>
+                <input type="file" class="" id="image"
+                formControlName="image" accept='image/*' (change)="onFileChange($event)" >
+              </div>
+              </div>
+            <button type="submit" class="btn btn-primary">Add News</button>
+        </form>
+    </div>
+</div>
